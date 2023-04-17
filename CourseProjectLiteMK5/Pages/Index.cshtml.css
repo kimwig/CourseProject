@@ -1,0 +1,334 @@
+﻿/* Styling for the index page will be done here. */
+
+/* New Custom Font */
+/* ~/wwwroot/css/Index.css */
+/*@font-face {
+    font-family: "Ubuntu";
+    src: url("~/wwwroot/media/Ubuntu-Normal.ttf");
+}*/
+
+/* html & body */
+/* ~/wwwroot/css/Index.css */
+html, body {
+    min-height: 100%;
+}
+
+/* ~/wwwroot/css/Index.css */
+body {
+    margin: 0;
+    font-family: "Ubuntu";
+    color: #FFF;
+    background: radial-gradient(#011638, #141414);
+}
+
+
+
+/* Top & Bottom borders */
+.border-top {
+    display: flex;
+    margin-top: 2rem;
+    margin-right: auto;
+    margin-left: auto;
+    border-bottom: 0.0625rem solid #888DA7;
+    max-width: 80%;
+}
+
+.border-bottom {
+    display: flex;
+    margin-top: 2rem;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 2rem;
+    border-bottom: 0.0625rem solid #888DA7;
+    max-width: 80%;
+}
+
+
+
+/* Access field and button */
+/* Container, h1 & Form*/
+.access-container {
+    margin-top: 2rem;
+}
+
+    .access-container h1 {
+        text-align: center;
+    }
+
+    /* ~/wwwroot/css/Index.css */
+    .access-container form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    /* Input (0.125rem = 2px when html element font-size = 16px) */
+    .access-container input:focus {
+        border: 0.125rem outset #888DA7;
+    }
+
+    .access-container input {
+        background-color: #141414;
+        font-size: 1.5rem;
+        line-height: 3rem;
+        color: #FFF;
+        text-align: center;
+        border: 0.125rem inset #000;
+        outline: none;
+        transition: 0.5s;
+        min-width: 75%;
+    }
+
+    /* Access Button */
+    .access-container button:hover {
+        transform: translateY(-0.3rem);
+        background-color: #888DA7;
+    }
+
+    .access-container button {
+        background-color: #001e41;
+        box-shadow: inset 0rem 0.625rem 0.875rem -0.4375rem #000;
+        color: #FFF;
+        font-size: 1.5rem;
+        font-weight: bold;
+        padding: 0.6rem 26.85%;
+        border: none;
+        border-radius: 2.625rem;
+        cursor: pointer;
+        transition: all 0.3s ease-out;
+    }
+
+
+
+/* Password Generator */
+/* Container wrapping the whole password generator + Password Generator h1 */
+.passwd-generator-container {
+    margin-top: 2rem;
+}
+
+    .passwd-generator-container h1 {
+        text-align: center;
+    }
+
+/* Font size for password option text, password length dropdown menu width aswell as all child elements under password options and section setting max-width */
+.checkbox-text {
+    font-size: 1.3rem;
+}
+
+.checkbox {
+    font-size: 1.2rem;
+}
+
+    .checkbox select {
+        width: 6.8rem;
+    }
+
+.passwd-options > * {
+    max-width: max-content;
+}
+
+.passwd-section > * {
+    max-width: max-content;
+}
+
+/* Options, both text and checkboxes */
+.passwd-options {
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem;
+}
+
+/* Flex container wrapping Your New Password text, password output field and copy button */
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1rem;
+    gap: 1rem;
+}
+
+/* Section for password output, buttons and text */
+.passwd-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1rem;
+    gap: 0.5rem;
+}
+
+/* Generate password button */
+.generate-button:hover {
+    transform: translateY(-0.3rem);
+    background-color: #888DA7;
+}
+
+.generate-button {
+    background-color: #001e41;
+    box-shadow: inset 0rem 0.625rem 0.875rem -0.4375rem #000;
+    color: #FFF;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 0.6rem 12.5%;
+    border: none;
+    border-radius: 2.625rem;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+}
+
+/* Your New Password text */
+.flex-container div {
+    margin: auto;
+    min-width: max-content;
+}
+
+/* Password output field */
+.placeholder-error::placeholder {
+    color: #FF5555;
+    transition: 0.5s ease-in-out;
+}
+
+.new-password:focus {
+    border: 0.125rem outset #888DA7;
+}
+
+.new-password {
+    background-color: #141414;
+    font-size: 1.5rem;
+    line-height: 3rem;
+    color: #FFF;
+    border: 0.125rem inset #000;
+    outline: none;
+    transition: 0.5s;
+    width: 75%;
+}
+
+/* Copy Button */
+.copy-button:hover {
+    transform: translateY(-0.3rem);
+    background-color: #888DA7;
+}
+
+.copy-button {
+    background-color: #001e41;
+    box-shadow: inset 0rem 0.625rem 0.875rem -0.4375rem #000;
+    color: #FFF;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 0.6rem 30%;
+    border: none;
+    border-radius: 2.625rem;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+}
+
+
+
+
+
+/* Larger screens adaptation */
+/* Tablets */
+@media screen and (min-width: 425px) {
+
+    .access-container {
+        max-width: 450px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/* Smaller Laptops */
+@media screen and (min-width: 769px) {
+
+    .access-container {
+        max-width: 100%;
+    }
+
+        /* ~/wwwroot/css/Index.css */
+        .access-container form {
+            flex-direction: row;
+            max-width: 33%;
+            margin: auto;
+        }
+
+        .access-container input {
+            font-size: 1.2rem;
+            line-height: 2rem;
+        }
+
+        .access-container button {
+            padding: 0;
+            font-size: 1.8rem;
+            min-height: 2.8rem;
+            min-width: 2.8rem;
+            border-radius: 100%;
+        }
+
+    .new-password {
+        font-size: 1.2rem;
+        line-height: 2rem;
+    }
+
+    .generate-button {
+        font-size: 1.2rem;
+    }
+
+    .copy-button {
+        font-size: 1.2rem;
+        padding: 0.4rem 15%;
+    }
+}
+
+/* Bigger Laptops and Desktops */
+@media screen and (min-width: 1025px) {
+
+    /* ~/wwwroot/css/Index.css */
+    body {
+        background: linear-gradient(#011638, #141414);
+    }
+
+    /* ~/wwwroot/css/Index.css */
+    .access-container form {
+        max-width: 100%;
+    }
+
+    .access-container input {
+        font-size: 1.5rem;
+        line-height: 2.5rem;
+    }
+
+    .access-container button {
+        min-height: 3.5rem;
+        min-width: 3.5rem;
+    }
+
+    .access-container {
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        margin-top: 5rem;
+        max-width: 33%;
+    }
+
+    .flex-container {
+        flex-direction: row;
+    }
+
+        .flex-container div {
+            margin: 0;
+        }
+
+    .generate-button {
+        padding: 0.8rem 5%;
+    }
+
+    .copy-button {
+        padding: 0.8rem 5%;
+    }
+
+    .new-password {
+        max-width: 60%;
+    }
+}

@@ -1,0 +1,123 @@
+﻿@page
+@model CourseProjectLiteMK5.Pages.IndexModel
+@{
+    ViewData["Title"] = "Access website";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/CourseProjectLiteMK5.styles.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/Index.css" asp-append-version="true">
+    <script src="~/js/index.js" defer></script>
+</head>
+<body>
+
+    <main>
+
+        <!-- Container for access code and button. -->
+        <div class="access-container">
+
+            <h1>Enter Code for Access</h1>
+            <form action="">
+                <input type="text" name="access" id="access" placeholder="Enter Access Code" autocomplete="off" />
+                <button type="submit" id="submitButton">Submit</button>
+            </form>
+
+        </div>
+
+        <!-- Top Border -->
+        <div class="border-top"></div>
+
+        <!-- Container for password generator. -->
+        <div class="passwd-generator-container">
+            <h1>Password Generator</h1>
+
+            <!-- Password generation options. -->
+            <div class="passwd-options">
+
+                <div class="checkbox-text">Password Length: </div>
+                <div class="checkbox">
+                    <select id="passwdLength" title="Select the length of your password.">
+                        <optgroup label="Weak">
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                            <option value="13">13</option>
+                            <option value="14">14</option>
+                            <option value="15">15</option>
+                        </optgroup>
+                        <optgroup label="Strong">
+                            <option value="16" selected>16</option>
+                            <option value="17">17</option>
+                            <option value="18">18</option>
+                            <option value="19">19</option>
+                            <option value="20">20</option>
+                            <option value="21">21</option>
+                            <option value="22">22</option>
+                            <option value="23">23</option>
+                            <option value="24">24</option>
+                            <option value="25">25</option>
+                            <option value="26">26</option>
+                            <option value="27">27</option>
+                            <option value="28">28</option>
+                            <option value="29">29</option>
+                            <option value="30">30</option>
+                            <option value="31">31</option>
+                            <option value="32">32</option>
+                            <option value="48">48</option>
+                            <option value="64">64</option>
+                            <option value="80">80</option>
+                            <option value="96">96</option>
+                            <option value="112">112</option>
+                            <option value="128">128</option>
+                        </optgroup>
+                        <optgroup label="Unbelievable">
+                            <option value="256">256</option>
+                            <option value="512">512</option>
+                            <option value="1024">1024</option>
+                            <option value="2048">2048</option>
+                        </optgroup>
+                    </select>
+                </div>
+                <div class="checkbox-text">Include Symbols: </div>
+                <div class="checkbox"><label><input type="checkbox" checked name="Symbols" id="symbols"> ( @@#$% ) </label></div>
+                <div class="checkbox-text">Include Numbers: </div>
+                <div class="checkbox"><label><input type="checkbox" checked name="Numbers" id="numbers"> ( 123456 ) </label></div>
+                <div class="checkbox-text">Include Lowercase Letters: </div>
+                <div class="checkbox"><label><input type="checkbox" checked name="Lowercae" id="lowercase"> ( abcdefgh ) </label></div>
+                <div class="checkbox-text">Include Uppercase Letters: </div>
+                <div class="checkbox"><label><input type="checkbox" checked name="Uppercase" id="uppercase"> ( ABCDEFGH ) </label></div>
+                <div class="checkbox-text">Exclude Similar Characters: </div>
+                <div class="checkbox"><label><input type="checkbox" name="NoSimilar" id="noSimilar"> ( i, l, 1, L, o, 0, O ) </label></div>
+
+            </div>
+
+            <!-- Container for the generated password section. -->
+            <div class="passwd-section">
+
+                <button name="GenerateButton" type="submit" id="generateButton" class="generate-button">Generate Password</button>
+                <div class="flex-container">
+                    <div class="checkbox-text">Your New Password</div>
+                    <input type="text" name="NewPassword" id="newPasswd" size="75" placeholder="placeholder" class="new-password">
+                    <button name="CopyButton" type="submit" id="copyButton" class="copy-button">Copy</button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Bottom border -->
+        <div class="border-bottom"></div>
+
+    </main>
+
+</body>
+</html>

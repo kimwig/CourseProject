@@ -1,0 +1,40 @@
+﻿@font-face {
+    font-family: "Ubuntu";
+    src: url("..//media/Ubuntu-Normal.ttf");
+}
+
+html, body {
+    min-height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: "Ubuntu";
+    color: #FFF;
+    background: radial-gradient(#011638, #141414);
+}
+
+.access-container form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+@media screen and (min-width: 769px) {
+    .access-container form {
+        flex-direction: row;
+        max-width: 33%;
+        margin: auto;
+    }
+}
+
+@media screen and (min-width: 1025px) {
+    body {
+        background: linear-gradient(#011638, #141414);
+    }
+
+    .access-container form {
+        max-width: 100%;
+    }
+}
