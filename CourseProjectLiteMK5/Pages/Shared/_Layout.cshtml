@@ -4,6 +4,7 @@
 @inject ICompositeViewEngine Engine
 
 @{
+    var foundNavbarPartial = Engine.FindView(ViewContext, "_NavbarPartial", isMainPage: false);
     var foundLoginPartial = Engine.FindView(ViewContext, "_LoginPartial", isMainPage: false);
     var foundFooterPartial = Engine.FindView(ViewContext, "_FooterPartial", isMainPage: false);
     var foundPrivacyPage = Url.Page("/Privacy", new { area = "" });
@@ -30,79 +31,14 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="~/Home"><img src="~/media/flashback_2.0_logo.png" alt="Flashback logo" style="width: 16rem;"/></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Dropdown
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" href="#">Disabled</a>
-                    </li>
-                </ul>
-                <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search ..." aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                </form>
-            </div>
-        </nav>
+        @if (foundNavbarPartial.Success)
+        {
+            await Html.RenderPartialAsync("_NavbarPartial");
+        }
     </header>
 
     <header>
-        <nav class="navbar navbar-light bg-light border-bottom box-shadow mb-3">
-            <div class="d-flex">
-                <a class="navbar-brand" href="~/Home"><img src="~/media/flashback_2.0_logo.png" alt="Flashback logo" style="width: 16rem;"/></a>
-            </div>
-
-            <div class="d-flex">
-                <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a href="~/Home" class="nav-link">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link disabled">Discover</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">Community</a>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="d-flex">
-                <form>
-                    <i class="fa fa-search"></i>
-                    <input type="text" placeholder="Search ..."/>
-                </form>
-            </div>
-
-            <div class="d-flex">
-                <button type="button">Login</button>
-                <button type="button"><i class="fa-regular fa-user"></i>   <i class="fa-solid fa-angle-down"></i></button>
-            </div>
-        </nav>
-    </header>
-
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3 visually-hidden">
             <div class="container">
                 <a class="navbar-brand" href="~/Home">CourseProjectLiteMK5</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"

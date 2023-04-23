@@ -46,21 +46,123 @@ namespace CourseProjectLiteMK5.TagHelpers
 
         private void MakeActive(TagHelperOutput output)
         {
-            var classAttr = output.Attributes.FirstOrDefault(a => a.Name == "class");
-            if (classAttr == null)
+            bool isDarkMode = false;
+
+            if (!isDarkMode)
             {
-                classAttr = new TagHelperAttribute("class", "active border-bottom");
-                output.Attributes.Add(classAttr);
-            }
-            else if (classAttr.Value == null || classAttr.Value.ToString()?.IndexOf("active") < 0)
-            {
-                output.Attributes.SetAttribute("class", classAttr.Value == null
-                    ? "active border-bottom"
-                    : classAttr.Value.ToString() + " active border-bottom");
+                var classAttr = output.Attributes.FirstOrDefault(a => a.Name == "class");
+                if (classAttr == null)
+                {
+                    if (classAttr?.Value.ToString()?.IndexOf("hdr") > 0)
+                    {
+                        classAttr = new TagHelperAttribute("class", "active border-bottom border-dark");
+                        output.Attributes.Add(classAttr);
+                    } 
+                    else if (classAttr?.Value.ToString()?.IndexOf("ftr") > 0)
+                    {
+                        classAttr = new TagHelperAttribute("class", "active border-bottom border-light");
+                        output.Attributes.Add(classAttr);
+                    }
+                    else
+                    {
+                        classAttr = new TagHelperAttribute("class", "active border-bottom");
+                        output.Attributes.Add(classAttr);
+                    }
+                }
+                else if (classAttr.Value == null || classAttr.Value.ToString()?.IndexOf("active") < 0)
+                {
+                    if (classAttr.Value?.ToString()?.IndexOf("hdr") > 0)
+                    {
+                        output.Attributes.SetAttribute("class", classAttr.Value == null
+                        ? "active border-bottom border-dark"
+                        : classAttr.Value.ToString() + " active border-bottom border-dark");
+                    }
+                    else if (classAttr.Value?.ToString()?.IndexOf("ftr") > 0)
+                    {
+                        output.Attributes.SetAttribute("class", classAttr.Value == null
+                        ? "active border-bottom border-light"
+                        : classAttr.Value.ToString() + " active border-bottom border-light");
+                    }
+                    else
+                    {
+                        output.Attributes.SetAttribute("class", classAttr.Value == null
+                        ? "active border-bottom"
+                        : classAttr.Value.ToString() + " active border-bottom");
+                    }
+                }
+                else
+                {
+                    if (classAttr.Value.ToString()?.IndexOf("hdr") > 0)
+                    {
+                        output.Attributes.SetAttribute("class", classAttr.Value.ToString() + " border-bottom border-dark");
+                    }
+                    else if (classAttr.Value.ToString()?.IndexOf("ftr") > 0)
+                    {
+                        output.Attributes.SetAttribute("class", classAttr.Value.ToString() + " border-bottom border-light");
+                    }
+                    else
+                    {
+                        output.Attributes.SetAttribute("class", classAttr.Value.ToString() + " border-bottom");
+                    }
+                }
             }
             else
             {
-                output.Attributes.SetAttribute("class", classAttr.Value.ToString() + " border-bottom");
+                var classAttr = output.Attributes.FirstOrDefault(a => a.Name == "class");
+                if (classAttr == null)
+                {
+                    if (classAttr?.Value.ToString()?.IndexOf("hdr") > 0)
+                    {
+                        classAttr = new TagHelperAttribute("class", "active border-bottom border-light");
+                        output.Attributes.Add(classAttr);
+                    }
+                    else if (classAttr?.Value.ToString()?.IndexOf("ftr") > 0)
+                    {
+                        classAttr = new TagHelperAttribute("class", "active border-bottom border-dark");
+                        output.Attributes.Add(classAttr);
+                    }
+                    else
+                    {
+                        classAttr = new TagHelperAttribute("class", "active border-bottom");
+                        output.Attributes.Add(classAttr);
+                    }
+                }
+                else if (classAttr.Value == null || classAttr.Value.ToString()?.IndexOf("active") < 0)
+                {
+                    if (classAttr.Value?.ToString()?.IndexOf("hdr") > 0)
+                    {
+                        output.Attributes.SetAttribute("class", classAttr.Value == null
+                        ? "active border-bottom border-light"
+                        : classAttr.Value.ToString() + " active border-bottom border-light");
+                    }
+                    else if (classAttr.Value?.ToString()?.IndexOf("ftr") > 0)
+                    {
+                        output.Attributes.SetAttribute("class", classAttr.Value == null
+                        ? "active border-bottom border-dark"
+                        : classAttr.Value.ToString() + " active border-bottom border-dark");
+                    }
+                    else
+                    {
+                        output.Attributes.SetAttribute("class", classAttr.Value == null
+                        ? "active border-bottom"
+                        : classAttr.Value.ToString() + " active border-bottom");
+                    }
+                }
+                else
+                {
+                    if (classAttr.Value.ToString()?.IndexOf("hdr") > 0)
+                    {
+                        output.Attributes.SetAttribute("class", classAttr.Value.ToString() + " border-bottom border-light");
+                    }
+                    else if (classAttr.Value.ToString()?.IndexOf("ftr") > 0)
+                    {
+                        output.Attributes.SetAttribute("class", classAttr.Value.ToString() + " border-bottom border-dark");
+                    }
+                    else
+                    {
+                        output.Attributes.SetAttribute("class", classAttr.Value.ToString() + " border-bottom");
+                    }
+                }
             }
         }
     }

@@ -1,47 +1,61 @@
 ﻿@{
-    string brandCssClasses = "mt-lg-3 col-lg d-lg-flex justify-content-lg-center align-self-lg-start";
-    string navCssClasses = "mt-lg-3 col-lg d-lg-flex justify-content-lg-center align-self-lg-start";
-    string scrollButtonCssClasses = "mt-lg-3 col-lg d-lg-flex justify-content-lg-center align-self-lg-start";
-    string statsCssClasses = "mt-lg-3 col-lg d-lg-flex flex-lg-column justify-content-lg-center align-self-lg-start";
-    string socialMediaCssClasses = "mt-lg-3 gap-lg-3 col-lg d-lg-flex flex-lg-column justify-content-lg-center align-items-lg-center";
+    string brandCssClasses = "col-lg d-lg-flex justify-content-lg-center align-self-lg-start";
+    string navCssClasses = "col-lg d-lg-flex justify-content-lg-center align-self-lg-start";
+    string scrollButtonCssClasses = "col-lg d-lg-flex justify-content-lg-center align-self-lg-start";
+    string statsCssClasses = "col-lg d-lg-flex flex-lg-column justify-content-lg-center align-self-lg-start";
+    string socialMediaCssClasses = "gap-lg-3 col-lg d-lg-flex flex-lg-column justify-content-lg-center align-items-lg-center";
 }
 
 
-<div class="p-lg-4 row align-items-lg-center">
-    <div class="@brandCssClasses">
-        <a asp-area="" asp-page="/Home"><img src="media/flashback_2.0_logo_light.png" alt="Flashback 2.0 Logo" class="img-fluid"></a>
+
+<div class="my-4 gap-4 d-flex flex-column my-lg-0 p-lg-4 flex-lg-row align-items-lg-center">
+
+    <div class="d-flex justify-content-center align-items-center hide-lg">
+        <button type="button" class="btn btn-light btn-lg rounded-circle scrl-btn" id="btn-back-to-top"><i class="fa-solid fa-angle-up"></i></button>
     </div>
 
-    <div class="@navCssClasses">
+    <div class="@brandCssClasses hide-sm">
+        <a asp-area="" asp-page="/Home"><img src="~/media/flashback_2.0_logo_light.png" alt="Flashback 2.0 Logo" class="img-fluid"></a>
+    </div>
+
+    <div class="@navCssClasses d-flex justify-content-center align-items-center">
         <ul class="nav">
             <li class="nav-item">
-                <h1 class="text-center">Links</h1>
-                <a is-active-page asp-area="" asp-page="/Home" class="nav-link text-light fs-4">Home</a>
-                <a href="" class="nav-link disabled fs-4">Discover</a>
-                <a href="" class="nav-link disabled fs-4">Community</a>
-                <a href="" class="nav-link disabled fs-4">About</a>
-                <a href="" class="nav-link disabled fs-4">Rules</a>
-                <a is-active-page asp-area="" asp-page="/Privacy" class="nav-link text-light fs-4">Privacy</a>
+                <h1 class="text-center h1-size">Links</h1>
+                <a is-active-page asp-area="" asp-page="/Home" class="nav-link text-light txt ftr">Home</a>
+                <a href="" class="nav-link disabled txt">Discover</a>
+                <a href="" class="nav-link disabled txt">Community</a>
+                <a class="nav-link text-light txt ftr" is-active-page asp-area="" asp-page="/About">About</a>
+                <a href="" class="nav-link disabled txt">Rules</a>
+                <a is-active-page asp-area="" asp-page="/Privacy" class="nav-link text-light txt ftr">Privacy</a>
             </li>
         </ul>
     </div>
 
-    <div class="@scrollButtonCssClasses">
-        <button type="button" class="btn btn-light btn-lg rounded-circle scrl-btn" id="btn-back-to-top"><i class="fa-solid fa-angle-up"></i></button>
+    <div class="@scrollButtonCssClasses d-flex justify-content-center align-items-center hide-sm">
+        <button class="btn btn-light btn-lg rounded-circle scrl-btn" id="scrollButton" type="button"><i class="fa-solid fa-angle-up"></i></button>
+    </div>
+    <script>
+        document.getElementById("scrollButton").addEventListener("click", function() {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+    </script>
+
+    <div class="@statsCssClasses d-flex flex-column justify-content-center align-self-center">
+        <h1 class="text-center h1-size">Statistics</h1>
+        <p class="text-start txt">Users Online <span class="fw-bold">NA</span></p>
+        <p class="text-start txt">Registered Members <span class="fw-bold">59</span></p>
+        <p class="text-start txt">Threads <span class="fw-bold">139</span></p>
     </div>
 
-    <div class="@statsCssClasses">
-        <h1 class="text-center">Statistics</h1>
-        <p class="text-start fs-4">Users Online <span class="fw-bold">17</span></p>
-        <p class="text-start fs-4">Registered Members <span class="fw-bold">59</span></p>
-        <p class="text-start fs-4">Threads <span class="fw-bold">139</span></p>
-    </div>
-
-    <div class="@socialMediaCssClasses gap-lg-3 flex-lg-column align-items-lg-center">
-        <a href="#" class="nav-link p-0 disabled fs-4"><i class="fa-brands fa-instagram"></i></a>
-        <a href="#" class="nav-link p-0 disabled fs-4"><i class="fa-brands fa-tiktok"></i></a>
-        <a href="#" class="nav-link p-0 disabled fs-4"><i class="fa-brands fa-snapchat"></i></a>
-        <a href="#" class="nav-link p-0 disabled fs-4"><i class="fa-brands fa-facebook"></i></a>
+    <div class="@socialMediaCssClasses gap-4 d-flex justify-content-center align-items-center">
+        <a href="#" class="p-0 nav-link disabled txt"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" class="p-0 nav-link disabled txt"><i class="fa-brands fa-tiktok"></i></a>
+        <a href="#" class="p-0 nav-link disabled txt"><i class="fa-brands fa-snapchat"></i></a>
+        <a href="#" class="p-0 nav-link disabled txt"><i class="fa-brands fa-facebook"></i></a>
     </div>
 </div>
 
