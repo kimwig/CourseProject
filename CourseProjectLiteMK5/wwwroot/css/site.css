@@ -12,7 +12,13 @@ html {
     }
 }
 
-body {}
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+main {flex: 1;}
+footer {margin-top: auto;}
 
 .active-border {border-bottom: 1px solid #FFF;}
 
@@ -73,7 +79,7 @@ button.accept-policy {
 
 
 
-
+.no-style ul { list-style: none; }
 
 .brand-size { max-width: 20rem !important; }
 .fs-c { font-size: 1.1rem; white-space: nowrap; }

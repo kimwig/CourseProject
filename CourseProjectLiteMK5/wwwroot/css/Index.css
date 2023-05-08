@@ -10,7 +10,7 @@ html, body {
 body {
     margin: 0;
     font-family: "Ubuntu";
-    color: #FFF;
+    color: #FFF !important;
     background: radial-gradient(#011638, #141414);
 }
 
@@ -20,6 +20,24 @@ body {
     align-items: center;
     gap: 1rem;
 }
+
+.codeInput {
+    background-color: #141414;
+    font-size: 1.5rem;
+    line-height: 3rem;
+    color: #FFF;
+    text-align: center;
+    border: 0.125rem inset #000;
+    outline: none;
+    transition: 0.5s;
+    min-width: 75%;
+}
+
+.codeInput:focus {
+    border: 0.125rem outset #888DA7;
+}
+
+.no-style ul { list-style: none; }
 
 @media screen and (min-width: 769px) {
     .access-container form {
