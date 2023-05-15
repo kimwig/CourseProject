@@ -1,14 +1,21 @@
-﻿@inject SignInManager<User> SignInManager
+﻿@using CourseProjectLiteMK5;
+@inject StatsCounter statsCounter
+@inject SignInManager<User> SignInManager
 @inject UserManager<User> UserManager
 
-<nav class="mb-3 navbar navbar-expand-lg navbar-light bg-light border-bottom box-shadow">
+@{
+    int members = statsCounter.GetUserCount();
+    int posts = statsCounter.GetPostCount();
+}
+
+<nav class="pb-3 navbar navbar-expand-lg navbar-light bg-light border-bottom box-shadow">
 
     <div class="container-fluid">
 
         <div class="me-auto ms-3 ms-xxl-5 brand-size">
             <a class="navbar-brand" asp-area="" asp-page="/Home"><img src="~/media/flashback_2.0_logo.png" alt="Flashback 2.0 Logo" class="img-fluid"/></a>
             <p class="m-0 fs-c text-black">
-                <span class="fw-bold">0</span> Users Online <span class="fw-bold">59</span> Members <span class="fw-bold">139</span> Posts
+                <span class="fw-bold">NA</span> Users Online <span class="fw-bold">@members</span> Members <span class="fw-bold">@posts</span> Posts
             </p>
         </div>
 

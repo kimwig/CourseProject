@@ -1,6 +1,4 @@
-﻿#nullable disable
-
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 
 namespace CourseProjectLiteMK5
 {

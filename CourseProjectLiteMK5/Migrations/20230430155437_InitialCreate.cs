@@ -211,8 +211,8 @@ namespace CourseProjectLiteMK5.Migrations
                 columns: new[] { "Id", "Code", "IsActive" },
                 values: new object[,]
                 {
-                    { "aee5a858-74d9-49e2-a54b-359b23781ec7", "bjc1SZ", false },
-                    { "fcd115a3-0cc0-4eee-ac1e-e0fc45343e00", "q42ag8", true }
+                    { "00000000-0000-0000-0000-000000000000", "000000", false },
+                    { "00000000-0000-0000-0000-000000000000", "000000", false }
                 });
 
             migrationBuilder.InsertData(

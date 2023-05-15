@@ -6,7 +6,7 @@
 # Manual ignores
 post-content.txt
 appsettings.json
-
+keys
 
 # User-specific files
 *.rsuser

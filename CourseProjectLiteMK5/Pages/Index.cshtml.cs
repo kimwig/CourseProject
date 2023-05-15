@@ -1,5 +1,3 @@
-#nullable disable
-
 using CourseProjectLiteMK5.Areas.Identity.Data;
 using CourseProjectLiteMK5.Data;
 using Microsoft.AspNetCore.DataProtection;

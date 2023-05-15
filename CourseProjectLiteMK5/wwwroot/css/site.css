@@ -79,6 +79,11 @@ button.accept-policy {
 
 
 
+.width { width: 100% !important;}
+@media (min-width: 768px) {
+    .width { width: 75% !important; }
+}
+
 .no-style ul { list-style: none; }
 
 .brand-size { max-width: 20rem !important; }

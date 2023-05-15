@@ -1,7 +1,4 @@
-﻿#nullable disable
-
-using System;
-using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace CourseProjectLiteMK5.Areas.Identity.Pages.Account.Manage
 {

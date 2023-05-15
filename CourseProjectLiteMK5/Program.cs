@@ -2,12 +2,9 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using CourseProjectLiteMK5.Data;
 using CourseProjectLiteMK5.Areas.Identity.Data;
-using Microsoft.AspNetCore.Authentication.Cookies;
 using CourseProjectLiteMK5;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.DataProtection;
-using System.Configuration;
-using Microsoft.AspNetCore.Authentication;
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("DevDbConnectionString") ?? 
@@ -15,12 +12,12 @@ var connectionString = builder.Configuration.GetConnectionString("DevDbConnectio
 
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseMySQL(connectionString));
 
-builder.Services.AddAuthentication(options =>
+builder.Services.ConfigureApplicationCookie(options =>
 {
-    options.DefaultScheme = IdentityConstants.ApplicationScheme;
-    options.DefaultSignInScheme = IdentityConstants.ExternalScheme;
-})
-.AddIdentityCookies();
+    options.LoginPath = "/NotAuthorized";
+    options.LogoutPath = "/Identity/Account/Logout";
+    options.AccessDeniedPath = "/Pages/AccessDenied";
+});
 
 builder.Services.AddAuthorization(options =>
 {
@@ -31,7 +28,7 @@ builder.Services.AddAuthorization(options =>
 });
 builder.Services.AddScoped<IAuthorizationHandler, CookieAuthorizationHandler>();
 
-builder.Services.AddIdentityCore<User>(options =>
+builder.Services.AddIdentity<User, IdentityRole>(options =>
 {
     options.Password.RequiredLength = 4;
     options.Password.RequiredUniqueChars = 1;
@@ -52,16 +49,34 @@ builder.Services.AddIdentityCore<User>(options =>
     options.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstuvwxyzåäöABCDEFGHIJKLMNOPQRSTUVWXYZÅÄÖ0123456789-_";
 })
 .AddEntityFrameworkStores<ApplicationDbContext>()
+.AddRoles<IdentityRole>()
 .AddSignInManager();
+
+builder.Services.AddScoped<PostService>();
+builder.Services.AddScoped<StatsCounter>();
+
+builder.Services.AddMemoryCache();
 
 builder.Services.AddDataProtection()
 .SetApplicationName("CourseProjectLiteMK5")
 .PersistKeysToFileSystem(new DirectoryInfo(Path.Combine(Directory.GetCurrentDirectory(), "keys")));
 
 builder.Services.AddRazorPages();
+builder.Services.AddServerSideBlazor();
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddScoped<ApplicationInitializer>();
+
 var app = builder.Build();
+
+using (var serviceScope = app.Services.CreateScope())
+{
+    var services = serviceScope.ServiceProvider;
+
+    var appInit = services.GetRequiredService<ApplicationInitializer>();
+
+    await appInit.InitializeAsync();
+}
 
 if (!app.Environment.IsDevelopment())
 {
@@ -73,24 +88,21 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
-app.UseStatusCodePages();
-
 app.UseRouting();
 
 app.UseAuthentication();
+
 app.UseAuthorization();
 
+app.UseStatusCodePages();
+
 app.MapRazorPages();
+app.MapBlazorHub();
 
 app.MapAreaControllerRoute(
     name: "IdentityArea",
     areaName: "Identity",
     pattern: "Identity/{controller=Home}/{action=Index}/{id?}");
-
-app.MapAreaControllerRoute(
-    name: "MainArea",
-    areaName: "Main",
-    pattern: "Main/{controller=Home}/{action=Index}/{id?}");
 
 app.MapControllerRoute(
     name: "default",

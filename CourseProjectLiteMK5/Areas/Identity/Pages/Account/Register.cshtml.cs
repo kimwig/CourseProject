@@ -1,6 +1,4 @@
-﻿#nullable disable
-
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using CourseProjectLiteMK5.Areas.Identity.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -61,8 +59,14 @@ namespace CourseProjectLiteMK5.Areas.Identity.Pages.Account
             public string ConfirmPassword { get; set; }
         }
 
-        public void OnGet()
+        public IActionResult OnGet()
         {
+            if (User.Identity.IsAuthenticated)
+            {
+                return Redirect("~/Home");
+            }
+
+            return Page();
         }
 
         public async Task<IActionResult> OnPostAsync()

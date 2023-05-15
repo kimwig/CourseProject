@@ -1,6 +1,4 @@
-﻿#nullable disable
-
-using CourseProjectLiteMK5.Areas.Identity.Data;
+﻿using CourseProjectLiteMK5.Areas.Identity.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;

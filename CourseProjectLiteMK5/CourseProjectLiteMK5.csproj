@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
-    <Nullable>enable</Nullable>
+    <Nullable>disable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
@@ -19,10 +19,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\Main\Controllers\" />
-    <Folder Include="Areas\Main\Data\" />
-    <Folder Include="Areas\Main\Models\" />
-    <Folder Include="Areas\Main\Views\" />
     <Folder Include="Migrations\" />
     <Folder Include="wwwroot\media\" />
   </ItemGroup>

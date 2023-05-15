@@ -16,7 +16,7 @@ namespace CourseProjectLiteMK5.Pages
             _userManager = userManager;
         }
 
-        public IdentityUser? CurrentUser { get; set; }
+        public IdentityUser CurrentUser { get; set; }
 
         public async Task<IActionResult> OnGetAsync()
         {

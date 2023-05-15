@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
-using Microsoft.AspNetCore.Razor.Runtime.TagHelpers;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 
 namespace CourseProjectLiteMK5.TagHelpers
@@ -11,14 +10,14 @@ namespace CourseProjectLiteMK5.TagHelpers
         /// <summary>The name of the action method.</summary>
         /// <remarks>Must be <c>null</c> if <see cref="P:Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper.Route" /> is non-<c>null</c>.</remarks>
         [HtmlAttributeName("asp-page")]
-        public string? Page { get; set; }
+        public string Page { get; set; }
 
         /// <summary>
         /// Gets or sets the <see cref="T:Microsoft.AspNetCore.Mvc.Rendering.ViewContext" /> for the current request.
         /// </summary>
         [HtmlAttributeNotBound]
         [ViewContext]
-        public ViewContext? ViewContext { get; set; }
+        public ViewContext ViewContext { get; set; }
 
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
@@ -34,7 +33,7 @@ namespace CourseProjectLiteMK5.TagHelpers
 
         private bool ShouldBeActive()
         {
-            string? currentPage = ViewContext?.RouteData.Values["Page"]?.ToString();
+            string currentPage = ViewContext?.RouteData.Values["Page"]?.ToString();
 
             if (!string.IsNullOrWhiteSpace(Page) && Page.ToLower() != currentPage?.ToLower())
             {

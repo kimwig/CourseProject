@@ -1,9 +1,15 @@
-﻿@{
+﻿@using CourseProjectLiteMK5;
+@inject StatsCounter statsCounter
+
+@{
     string brandCssClasses = "col-lg d-lg-flex justify-content-lg-center align-self-lg-start";
     string navCssClasses = "col-lg d-lg-flex justify-content-lg-center align-self-lg-start";
     string scrollButtonCssClasses = "col-lg d-lg-flex justify-content-lg-center align-self-lg-start";
     string statsCssClasses = "col-lg d-lg-flex flex-lg-column justify-content-lg-center align-self-lg-start";
     string socialMediaCssClasses = "gap-lg-3 col-lg d-lg-flex flex-lg-column justify-content-lg-center align-items-lg-center";
+
+    int registeredUsers = statsCounter.GetUserCount();
+    int threads = statsCounter.GetPostCount();
 }
 
 
@@ -47,8 +53,8 @@
     <div class="@statsCssClasses d-flex flex-column justify-content-center align-self-center">
         <h1 class="text-center h1-size">Statistics</h1>
         <p class="text-start txt">Users Online <span class="fw-bold">NA</span></p>
-        <p class="text-start txt">Registered Members <span class="fw-bold">59</span></p>
-        <p class="text-start txt">Threads <span class="fw-bold">139</span></p>
+        <p class="text-start txt">Registered Members <span class="fw-bold">@registeredUsers</span></p>
+        <p class="text-start txt">Threads <span class="fw-bold">@threads</span></p>
     </div>
 
     <div class="@socialMediaCssClasses gap-4 d-flex justify-content-center align-items-center">

@@ -1,5 +1,3 @@
-#nullable disable
-
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace CourseProjectLiteMK5.Pages
