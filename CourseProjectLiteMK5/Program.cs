@@ -5,8 +5,10 @@ using CourseProjectLiteMK5.Areas.Identity.Data;
 using CourseProjectLiteMK5;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.DataProtection;
+using Microsoft.AspNetCore.HttpOverrides;
 
 var builder = WebApplication.CreateBuilder(args);
+
 var connectionString = builder.Configuration.GetConnectionString("DevDbConnectionString") ?? 
     throw new InvalidOperationException("Connection string 'DevDbConnectionString' not found.");
 
@@ -68,6 +70,11 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<ApplicationInitializer>();
 
 var app = builder.Build();
+
+app.UseForwardedHeaders(new ForwardedHeadersOptions
+{
+    ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+});
 
 using (var serviceScope = app.Services.CreateScope())
 {
